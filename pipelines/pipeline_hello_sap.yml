@@ -8,13 +8,25 @@ resources:
   type: time
   source:
     interval: 5m
+- name: python-image
+  type: registry-image
+  source:
+    repository: python
+- name: hello-sap-python3.10-alpine3.20
+  type: registry-image
+  source:
+    repository: ggonev/hello-sap-python3.10-alpine3.20
 jobs:
 - name: hello-sap-job
   plan:
   - get: every-5m
     trigger: true
   - get: resource-tutorial
+  - get: python-image
+  - get: hello-sap-python3.10-alpine3.20
   - task: hello-sap-task
     file: resource-tutorial/tasks/task_hello_sap_python.yml
+    image: python-image
   - task: hello-sap-docker
     file: resource-tutorial/tasks/task_hello_sap_docker.yml
+    image: hello-sap-python3.10-alpine3.20
