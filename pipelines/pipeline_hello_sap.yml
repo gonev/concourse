@@ -1,0 +1,12 @@
+resources:
+- name: resource-tutorial
+  type: git
+  source:
+    uri: https://github.com/gonev/concourse.git
+    branch: main
+jobs:
+- name: hello-sap-job
+  plan:
+  - get: resource-tutorial
+  - task: hello-sap-task
+    file: resource-tutorial/tasks/task_hello_sap_python.yml
