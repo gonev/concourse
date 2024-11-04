@@ -4,13 +4,15 @@ resources:
   source:
     uri: https://github.com/gonev/concourse.git
     branch: main
-- name: my-timer
+- name: every-5m
   type: time
   source:
     interval: 5m
 jobs:
 - name: hello-sap-job
   plan:
+  - get: every-5m
+    trigger: true
   - get: resource-tutorial
   - task: hello-sap-task
     file: resource-tutorial/tasks/task_hello_sap_python.yml
