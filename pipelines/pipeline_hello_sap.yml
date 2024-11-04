@@ -16,3 +16,5 @@ jobs:
   - get: resource-tutorial
   - task: hello-sap-task
     file: resource-tutorial/tasks/task_hello_sap_python.yml
+  - task: hello-sap-docker
+    file: resource-tutorial/tasks/task_hello_sap_docker.yml
