@@ -4,6 +4,10 @@ resources:
   source:
     uri: https://github.com/gonev/concourse.git
     branch: main
+- name: my-timer
+  type: time
+  source:
+    interval: 5m
 jobs:
 - name: hello-sap-job
   plan:
