@@ -7,15 +7,17 @@ RUN apk upgrade
 RUN apk add jq
 RUN apk add yq-go
 RUN pip install pip
+RUN apk add bash
 
 RUN mkdir /opt/runner
 COPY personas.json /opt/runner/personas.json
 COPY welcome_person.py /opt/runner/welcome_person.py
+COPY Pipfile /opt/runner/Pipfile
+COPY Pipfile.lock /opt/runner/Pipfile.lock
 WORKDIR /opt/runner
 
-RUN pip3 install --user pipenv
+RUN pip install --user pipenv
 # --system to install all packages from Pipfile globally
-RUN python3 -m pipenv install --system
-ENV PYTHONPATH=$PYTHONPATH:/opt/runner/
+RUN python -m pipenv install --system --deploy
 
 CMD ["python3", "welcome_person.py"]
