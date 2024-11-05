@@ -9,4 +9,13 @@ run:
   path: python
   dir: resource-tutorial
   args:
-  - welcome_person.py
+  - -exc
+  - |
+      python welcome_person.py
+
+      git config --global user.name "$GIT_USER"
+      git config --global user.email "$GIT_EMAIL"
+
+      git add personas.json
+      git commit -m "Update shown persons via Concourse pipeline"
+      git push origin "$GIT_BRANCH"

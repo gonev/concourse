@@ -27,6 +27,10 @@ jobs:
   - task: hello-sap-task
     file: resource-tutorial/tasks/task_hello_sap_python.yml
     image: python-image
+    params:
+      GIT_USER: "gonev"
+      GIT_EMAIL: "gonev2001@yahoo.com"
+      GIT_BRANCH: "main"
   - task: hello-sap-docker
     file: resource-tutorial/tasks/task_hello_sap_docker.yml
     image: hello-sap-python3.10-alpine3.20
