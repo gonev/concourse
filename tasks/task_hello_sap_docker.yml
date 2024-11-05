@@ -6,7 +6,7 @@ platform: linux
 inputs: # pass concourse-examples into this task step
 - name: resource-tutorial
 run:
-  path: python
+  path: sh
   dir: resource-tutorial
   args:
   - -exc
