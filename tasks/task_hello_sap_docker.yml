@@ -7,5 +7,6 @@ inputs: # pass concourse-examples into this task step
 - name: resource-tutorial
 run:
   path: python
+  dir: resource-tutorial
   args:
-  - resource-tutorial/welcome_person.py
+  - welcome_person.py
