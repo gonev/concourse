@@ -5,6 +5,12 @@ platform: linux
 # echo "Hello Concourse"
 inputs: # pass concourse-examples into this task step
 - name: resource-tutorial
+
+params:
+      GIT_USER: "gonev"
+      GIT_EMAIL: "gonev2001@yahoo.com"
+      GIT_BRANCH: "main"
+
 run:
   path: sh
   dir: resource-tutorial
