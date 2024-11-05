@@ -8,4 +8,4 @@ inputs: # pass concourse-examples into this task step
 run:
   path: python
   args:
-  - resource-tutorial/hello_concourse.py
+  - resource-tutorial/welcome_person.py
