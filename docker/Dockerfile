@@ -8,6 +8,7 @@ RUN apk add jq
 RUN apk add yq-go
 RUN pip install pip
 RUN apk add bash
+RUN apk add git
 
 RUN mkdir /opt/runner
 #COPY personas.json /opt/runner/personas.json
